@@ -1,0 +1,161 @@
+/*
+jQuery.ganttView v.0.8.0
+Copyright (c) 2010 JC Grubbs - jc.grubbs@devmynd.com
+MIT License Applies
+*/
+/* for border */
+div.ganttview {
+	border: none;
+	color: #444444 !important;
+}
+
+/* for some items */
+div.ganttview-blocks {
+	position: relative;
+}
+div.ganttview-block {
+	position: absolute;
+}
+/* for 3 vtheader */
+div.ganttview-vtheader-records,
+div.ganttview-vtheader-record-name,
+div.ganttview-vtheader-items {
+	float: left;
+}
+
+div.ganttview-vtheader {
+	width: 333px;
+	margin-top: 67px;
+	border-bottom: 1px solid #999999;
+}
+div.ganttview-vtheader-item-name {
+	width: 150px;
+}
+div.ganttview-vtheader-series-name {
+	width: 70px;
+}
+div.ganttview-vtheader-record-name {
+	width: 100px;
+	border-top: 1px solid #999999;
+}
+div.ganttview-vtheader-record-name a {
+	color: #FFFFFF;
+	font-weight: bold;
+	-moz-text-shadow: 1px 1px 1px #666666;
+	-webkit-text-shadow: 1px 1px 1px #666666;
+	text-shadow: 1px 1px 1px #666666;
+}
+
+
+/* for vtheader border and background */
+div.ganttview-vtheader-record-name {
+	background-color: #1797C0;
+}
+div.ganttview-vtheader-record-name:nth-child(3n) {
+	background-color: #54A8C2;
+}
+div.ganttview-vtheader-records {
+	border-left: 1px solid #999999;
+}
+div.ganttview-vtheader-items,
+div.ganttview-vtheader-series {
+	border-left: 1px solid #D0D0D0;
+}
+div.ganttview-vtheader-items {
+	border-top: 1px solid #999999;
+}
+div.ganttview-vtheader-item-name.first,
+div.ganttview-vtheader-series-name.first {
+	border-top: none;
+}
+
+/* for slide-container */
+div.ganttview-slide-container {
+	border: 1px solid #999;
+}
+
+/* for hzheader */
+div.ganttview-hzheader-month {
+	border-right: 1px solid #999999;
+	padding: 2px 0;
+	background-color: #E5ECF9;
+	font-size: 16px;
+	font-weight: bold;
+}
+div.ganttview-hzheader-month:nth-of-type(2n)  {
+	background-color: #EEF5F9;
+}
+
+div.ganttview-hzheader-day {
+	border-right: 1px solid #D0D0D0;
+	background-color: #FFFFFF;
+}
+
+div.ganttview-hzheader-day.ganttview-lastdayofmonth {
+	border-right: 1px solid #999999;
+}
+
+/* for showDayOfWeek */
+div.ganttview-blocks {
+	margin-top: 67px;
+}
+
+div.ganttview-hzheader-dayofweek {
+	float: left;
+	text-align: center;
+}
+
+div.ganttview-hzheader-dayofweek.last {
+	border-right: none;
+}
+
+div.ganttview-hzheader-dayofweek {
+	width: 20px;
+	height: 20px;
+	border-right: 1px solid #D0D0D0;
+	border-top: 1px solid #d0d0d0;
+	background-color: #FFFFFF;
+	line-height: 20px;
+	color: #777;
+}
+
+div.ganttview-hzheader-dayofweek.ganttview-lastdayofmonth {
+	border-right: 1px solid #999999;
+}
+
+/* for weekend */
+div.ganttview-hzheader-day.Sat,
+div.ganttview-hzheader-dayofweek.Sat,
+div.ganttview-grid-row-cell.ganttview-weekend.Sat {
+	background-color: #F0F4FB;
+}
+div.ganttview-hzheader-day.Sun,
+div.ganttview-hzheader-dayofweek.Sun,
+div.ganttview-grid-row-cell.ganttview-weekend.Sun {
+	background-color: #FDF0EE;
+}
+
+/* for grid */
+div.ganttview-grid-row-cell {
+	border-top: 1px solid #D0D0D0;
+	border-right: 1px solid #D0D0D0;
+	background-color: #FFFFFF;
+}
+div.ganttview-grid-row.first div.ganttview-grid-row-cell {
+	border-top: 1px solid #999999;
+}
+
+div.ganttview-grid-row-cell.ganttview-lastdayofmonth {
+	border-right: 1px solid #999999;
+}
+
+/* for block */
+div.ganttview-block {
+	-moz-box-shadow: 0px 1px 1px #aaaaaa;
+	-webkit-box-shadow: 0px 1px 1px #aaaaaa;
+	box-shadow: 0px 1px 1px #aaaaaa;
+}
+
+div.ganttview-block-container {
+	padding: 2px 0;
+}
