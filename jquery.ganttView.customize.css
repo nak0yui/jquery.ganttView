@@ -24,17 +24,20 @@ div.ganttview-vtheader-items {
 }
 
 div.ganttview-vtheader {
-	width: 333px;
+	width: 335px;
 	margin-top: 67px;
 	border-bottom: 1px solid #999999;
 }
 div.ganttview-vtheader-item-name {
+	padding-left: 4px;
 	width: 150px;
 }
 div.ganttview-vtheader-series-name {
+	padding-left: 4px;
 	width: 70px;
 }
 div.ganttview-vtheader-record-name {
+	padding-left: 4px;
 	width: 100px;
 	border-top: 1px solid #999999;
 }
