@@ -81,6 +81,7 @@ div.ganttview-hzheader-month {
 	background-color: #E5ECF9;
 	font-size: 16px;
 	font-weight: bold;
+	overflow: hidden;
 }
 div.ganttview-hzheader-month:nth-of-type(2n)  {
 	background-color: #EEF5F9;
