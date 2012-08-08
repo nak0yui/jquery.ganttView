@@ -29,6 +29,7 @@
    "2": string,
    "3": string
  }
+ blockText: string
  */
 
 (function ($) {
@@ -66,7 +67,8 @@
         "1": false,
         "2": false,
         "3": false
-      }
+      },
+      blockText: false
 
     };
     
@@ -142,7 +144,7 @@
       addHzHeader(slideDiv, dates, opts.cellWidth, opts.showDayOfWeeks);
       addGrid(slideDiv, opts.data, dates, opts.cellWidth, opts.showWeekends);
       addBlockContainers(slideDiv, opts.data);
-      addBlocks(slideDiv, opts.data, opts.cellWidth, opts.start);
+      addBlocks(slideDiv, opts.data, opts.cellWidth, opts.start, opts.blockText);
       div.append(slideDiv);
       applyLastClass(div.parent());
     }
@@ -369,7 +371,7 @@
       div.append(blocksDiv);
     }
 
-    function addBlocks(div, data, cellWidth, start) {
+    function addBlocks(div, data, cellWidth, start, blockText) {
       var rows = $("div.ganttview-blocks div.ganttview-block-container", div);
       var rowIdx = 0;
       var rowAppendBlock = function(data, title) {
@@ -399,9 +401,24 @@
           var item = data;
           var size = DateUtils.daysBetween(item.start, item.end) + 1;
           var offset = DateUtils.daysBetween(start, item.start);
+          var $blockText =  $("<div>", { "class": "ganttview-block-text" });
+          var text;
+          if (blockText === false) {
+            text = size;
+          } else {
+            text = blockText;
+            $.each(data, function(key) {
+              text = text.replace("{" + key + "}", this);
+            });
+            while (text.search(/{.+?}/) !== -1) {
+              text = text.replace(/{.+?}/, "");
+            }
+            text = text + ", " + size;
+          }
+          $blockText.text(text);
           var block = $("<div>", {
             "class": "ganttview-block",
-            "title": title + ", " + size + " days",
+            "title": title + ", " + text + " days",
             "css": {
               "width": ((size * cellWidth) - 9) + "px",
               "margin-left": ((offset * cellWidth) + 3) + "px"
@@ -410,7 +427,8 @@
           if (item.color) {
             block.css("background-color", item.color);
           }
-          block.append($("<div>", { "class": "ganttview-block-text" }).text(size));
+          
+          block.append($blockText);
           $(rows[rowIdx]).append(block);
           rowIdx++;
         }
